@@ -6,7 +6,7 @@ export async function main(ns) {
     		ns.run('1.js',1,t)
     	}
     	else{
-    		await ns.hack(ns.getHostname())
+    		await ns.hack(hostname)
     		if(t == 10){
 	    		await ns.grow(hostname)
 	    		await ns.weaken(hostname)
