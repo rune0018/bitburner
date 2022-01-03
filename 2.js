@@ -13,6 +13,6 @@ export async function main(ns) {
     		}
     	}
     	t++
+        ns.sleep(100)
     }
-    ns.sleep(100)
 }
