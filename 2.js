@@ -1,7 +1,8 @@
 export async function main(ns) {
     var t = 0
+    var hostname = await ns.getHostname()
     while(true){
-	    if(ns.getServerMaxRam(ns.getHostname())-ns.getServerUsedRam(ns.getHostname()) > 3.15){
+	    if(ns.getServerMaxRam(hostname)-ns.getServerUsedRam(hostname) > 3.15){
     		ns.run('1.js',1,t)
     	}
     	else{
