@@ -3,7 +3,7 @@ export async function main(ns) {
     var hostname = await ns.getHostname()
     while(true){
 	    if(await ns.getServerMaxRam(hostname)-await ns.getServerUsedRam(hostname) > 3.15){
-    		await ns.run('1.js',1,t)
+    		await ns.run('2.js',1,t)
     	}
     	else{
     		await ns.hack(hostname)
