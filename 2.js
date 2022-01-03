@@ -2,8 +2,8 @@ export async function main(ns) {
     var t = 0
     var hostname = await ns.getHostname()
     while(true){
-	    if(ns.getServerMaxRam(hostname)-ns.getServerUsedRam(hostname) > 3.15){
-    		ns.run('1.js',1,t)
+	    if(await ns.getServerMaxRam(hostname)-await ns.getServerUsedRam(hostname) > 3.15){
+    		await ns.run('1.js',1,t)
     	}
     	else{
     		await ns.hack(hostname)
@@ -14,6 +14,6 @@ export async function main(ns) {
     		}
     	}
     	t++
-        ns.sleep(100)
+        await ns.sleep(100)
     }
 }
