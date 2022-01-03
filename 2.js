@@ -8,8 +8,8 @@ export async function main(ns) {
     	else{
     		await ns.hack(ns.getHostname())
     		if(t == 10){
-	    		await ns.grow(ns.getHostname())
-	    		await ns.weaken(ns.getHostname())
+	    		await ns.grow(hostname)
+	    		await ns.weaken(hostname)
 	    		t = 0
     		}
     	}
