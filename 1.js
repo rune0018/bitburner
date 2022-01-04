@@ -15,7 +15,7 @@ export async function main(ns) {
             //    }
             //    await ns.sleep(100)
             //}
-            if(!await ns.hasRootAccess(scan[i])&&await ns.getServerNumPortsRequired(scan[i]) == 0 && await ns.getServerRequiredHackingLevel(host)< await ns.getHackingLevel()){
+            if(!await ns.hasRootAccess(scan[i])&&await ns.getServerNumPortsRequired(scan[i]) == 0 && await ns.getServerRequiredHackingLevel(scan[1])< await ns.getHackingLevel()){
                 await ns.nuke(scan[i])
             }
             if(await ns.hasRootAccess(scan[i])&& await ns.getScriptRam('1.js', scan[i])< 1){

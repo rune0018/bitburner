@@ -1,6 +1,6 @@
 export async function main(ns) {
     var t = 0
-    var hostname = await ns.args()
+    var hostname = ns.args
     while(true){
         await ns.hack(hostname)
         if(t == 10){
