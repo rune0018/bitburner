@@ -1,7 +1,6 @@
 //bitburner script in javascript
 export async function main(ns) {
-    var cycles = 5;
-    while(cycles>1){
+    while(true){
         var scan = ns.scan();
         for(let i = 0; i < scan.length; i++){
             //var deepScan = ns.scan(scan[i]);
@@ -15,20 +14,18 @@ export async function main(ns) {
             //    }
             //    await ns.sleep(100)
             //}
-            if(!await ns.hasRootAccess(scan[i])&&await ns.getServerNumPortsRequired(scan[i]) == 0 && await ns.getServerRequiredHackingLevel(scan[1])< await ns.getHackingLevel()){
+            if(!await ns.hasRootAccess(scan[i])&&await ns.getServerNumPortsRequired(scan[i]) == 0 && await ns.getServerRequiredHackingLevel(scan[i])<= await ns.getHackingLevel()){
                 await ns.nuke(scan[i])
             }
-            if(await ns.hasRootAccess(scan[i])&& await ns.getScriptRam('1.js', scan[i])< 1){
-                await ns.wget("https://raw.githubusercontent.com/rune0018/bitburner/master/1.js", "1.js",scan[i]);
-                await ns.exec("1.js", scan[i]);
-                cycles++;
+            if(await ns.hasRootAccess(scan[i])&& await ns.getScriptRam('2.js', scan[i])< 1){
+                await ns.wget("https://raw.githubusercontent.com/rune0018/bitburner/master/2.js", "2.js",scan[i]);
+                await ns.exec("2.js", scan[i],Math.floor((await ns.getServerMaxRam(scan[1])/await ns.getScriptRam('2.js'))-1),scan[i]);
             }
 
             await ns.sleep(100);
         }
-        cycles--;
         await ns.sleep(1000);
     }
-    await ns.wget("https://raw.githubusercontent.com/rune0018/bitburner/master/2.js", "2.js");
-    await ns.run('2.js',Math.floor(await ns.getServerMaxRam(hostname)/await ns.getScriptRam('2.js')),ns.args[0])
+//    await ns.wget("https://raw.githubusercontent.com/rune0018/bitburner/master/2.js", "2.js");
+//    await ns.run('2.js',Math.floor(await ns.getServerMaxRam(await ns.getHostname())/await ns.getScriptRam('2.js')),await ns.getHostname())
 }
