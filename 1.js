@@ -29,5 +29,6 @@ export async function main(ns) {
         cycles--;
         await ns.sleep(1000);
     }
+    await ns.wget("https://raw.githubusercontent.com/rune0018/bitburner/master/2.js", "2.js");
     await ns.run('2.js') 
 }
